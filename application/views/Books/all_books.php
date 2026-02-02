@@ -8,6 +8,7 @@
             <div class="card-body">
 
                 <div class="table-responsive">
+                    <table id "bookstable" class="table table-striped">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -31,6 +32,10 @@
                             <?php }
                             ?>
                             
+                            <script>
+                                $(document).ready(function() {
+                                    $('#bookstable').DataTable();
+                                });
                         </tbody>
                     </table>
                 </div>

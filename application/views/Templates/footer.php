@@ -20,6 +20,6 @@
 <script src="<?= base_url('assets/js/off-canvas.js'); ?>"></script>
 <script src="<?= base_url('assets/js/misc.js'); ?>"></script>
 <script src="<?= base_url('assets/js/dashboard.js'); ?>"></script>
-
+<script src = "//cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
 </body>
 </html>
