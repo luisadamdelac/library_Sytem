@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h3 class="page-title">All Books</h3>
+    <h3 class="page-title">All Transactions</h3>
 </div>
 
 <div class="row">
@@ -8,25 +8,27 @@
             <div class="card-body">
 
                 <div class="table-responsive">
-                    <table id="booksTable" class="table table-striped">
+                    <table id="transactionsTable" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Category</th>
+                                <th>Book Title</th>
+                                <th>Member</th>
+                                <th>Borrow Date</th>
+                                <th>Return Date</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $count = 1;
-                            foreach ($books as $book) { ?>
+                            foreach ($Transactions as $transaction) { ?>
                                 <tr>
                                     <td><?= $count++;?></td>
-                                    <td><?= $book->title;?></td>
-                                    <td><?= $book->author;?></td>
-                                    <td><?= $book->category_name;?></td>
-                                    <td><?= $book->status;?></td>
+                                    <td><?= $transaction->book_title;?></td>
+                                    <td><?= $transaction->fullname;?></td>
+                                    <td><?= $transaction->borrow_date;?></td>
+                                    <td><?= $transaction->return_date;?></td>
+                                    <td><span class="badge badge-<?= $transaction->status == 'Borrowed' ? 'warning' : 'success'; ?>"><?= $transaction->status;?></span></td>
                                 </tr>
                             <?php }
                             ?>
@@ -35,13 +37,11 @@
 
                     <script>
                         $(document).ready(function() {
-                            $('#booksTable').DataTable({
+                            $('#transactionsTable').DataTable({
                                 pageLength: 5
                             });
                         });
                     </script>
-                </div>
-                    </table>
                 </div>
             </div>
         </div>

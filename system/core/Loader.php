@@ -237,6 +237,13 @@ class CI_Loader {
 	 */
 	public $Category_model;
 
+	/**
+	 * Transaction_model
+	 *
+	 * @var	Transaction_model
+	 */
+	public $Transaction_model;
+
 	// --------------------------------------------------------------------
 
 	/**

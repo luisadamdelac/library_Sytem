@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Books extends CI_Controller {
 
+	public $Book_model;
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Book_model');
+	}
+
 	public function index()
 	{
         $data['title'] = 'All Books';

@@ -147,7 +147,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `student_no`, `Lname`, `Fname`, `Mname`, `email`, `role_id`, `password`, `created_at`, `updated_at`) VALUES
-(1, '26-001', 'Bengua', 'Thess', 'Asilo', 'tess@example.com', 3, 'password123', '2026-01-21 05:04:35', '2026-01-21 05:04:35'),
+(1, '26-001', 'Dela Cruz', 'Luis', 'Adam', 'tess@example.com', 3, 'password123', '2026-01-21 05:04:35', '2026-01-21 05:04:35'),
 (2, '26-002', 'Smith', 'Lloyd', 'Dimalibot', 'lloyd@example.com', 3, 'password123', '2026-01-21 05:04:35', '2026-01-21 05:04:35');
 
 --

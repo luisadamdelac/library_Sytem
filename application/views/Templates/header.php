@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 
   <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js'); ?>"></script>
-  <link rel="shortcut icon" href="<?= base_url('//cdn.datatables.net/2.3.7/css/dataTables.dataTables.min.css/assets/images/favicon.png'); ?>" />
+  <link rel="stylesheet" href="//cdn.datatables.net/2.3.7/css/dataTables.dataTables.min.css">
+  <link rel="shortcut icon" href="<?= base_url('assets/images/favicon.png'); ?>" />
   
 </head>
 <body>
@@ -48,7 +49,7 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Thess Bengua</p>
+                  <p class="mb-1 text-black">Luis Adam Dela Cruz</p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
