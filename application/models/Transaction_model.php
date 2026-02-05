@@ -3,22 +3,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Transaction_model extends CI_Model {
 
-    public function get_all_transactions() {
-        $this->db->select('transactions.*, books.title as book_title, CONCAT(users.Fname, " ", users.Lname) as fullname, categories.category_name');
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function get_all_transaction() {
+        $this->db->select('transactions.*, books.title, books.author, categories.category_name, CONCAT(users.Fname, " ", users.Lname) as fullname');
         $this->db->from('transactions');
-        $this->db->join('books', 'books.book_id = transactions.book_id');
-        $this->db->join('users', 'users.user_id = transactions.user_id');
-        $this->db->join('categories', 'categories.category_id = books.category_id');
+        $this->db->join('books', 'transactions.book_id = books.book_id');
+        $this->db->join('users', 'transactions.user_id = users.user_id');
+        $this->db->join('categories', 'books.category_id = categories.category_id');
         $query = $this->db->get();
         return $query->result();
     }
 
-    public function insert_transaction($data) {
-        $this->db->insert('transactions', $data);
+    public function get_all_borrow() {
+        $this->db->select('transactions.*, books.title, books.author, categories.category_name, CONCAT(users.Fname, " ", users.Lname) as fullname');
+        $this->db->from('transactions');
+        $this->db->join('books', 'transactions.book_id = books.book_id');
+        $this->db->join('users', 'transactions.user_id = users.user_id');
+        $this->db->join('categories', 'books.category_id = categories.category_id');
+        $this->db->where('transactions.status', 'Borrowed');
+        $query = $this->db->get();
+        return $query->result();
     }
 
-    public function update_transaction($transaction_id, $data) {
-        $this->db->where('transaction_id', $transaction_id);
-        $this->db->update('transactions', $data);
+    public function get_all_books() {
+        $this->db->select('books.*, categories.category_name');
+        $this->db->from('books');
+        $this->db->join('categories', 'books.category_id = categories.category_id');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_all_users() {
+        $this->db->select('*, CONCAT(Fname, " ", Lname) as fullname');
+        $this->db->from('users');
+        $query = $this->db->get();
+        return $query->result();
     }
 }

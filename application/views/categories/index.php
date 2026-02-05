@@ -27,5 +27,12 @@
                 <?php }?>
             </tbody>
         </table>
+        <script>
+            $(document).ready(function() {
+                $('#categoriesTable').DataTable({
+                    pageLength: 5
+                });
+            });
+        </script>
     </div>
 </div>

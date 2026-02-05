@@ -1,5 +1,6 @@
 <div class="page-header">
-    <h1 class="page-title">All Transactions</h1>
+    <h3 class="page-title"><Borrow and Return Book></h3>
+   <a href="<?= site_url('Transactions/borrow_add'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i> Borrow Book</a>
 </div>
 
 <div class="row">
@@ -7,8 +8,7 @@
         <div class="card">
             <div class="card-body">
 
-            <div class="table-responsive">
-                <table id="booksTable" class="table table-striped">
+                <table id="borrowTable" class="table table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -18,12 +18,12 @@
                             <th>Borrow Date</th>
                             <th>Due Date</th>
                             <th>Return Date</th>
-                            <th>Status</th>
-                        </tr>
+                            <th>Action</th>
+                        </tr>     
                     </thead>
                     <tbody>
                         <?php $count = 1;
-                            foreach($transactions as $transact) { ?>
+                            foreach($borrow as $transact) { ?>
                                 <tr>
                                     <td><?= $count++; ?></td>
                                     <td><?= $transact->fullname; ?></td>
@@ -32,7 +32,15 @@
                                     <td><?= $transact->borrow_date; ?></td>
                                     <td><?= $transact->due_date; ?></td>
                                     <td><?= $transact->return_date; ?></td>
-                                    <td><span class="badge badge-<?= $transact->status == 'Borrowed' ? 'warning' : 'success'; ?>"><?= $transact->status;?></span></td>
+                                    <td>
+                                        <?php if ($transact->status == 'Borrowed') { ?>
+                                            <a href="<?= site_url('Transactions/return/'.$transact->transaction_id); ?>"
+                                               class='btn btn-sm btn-primary'
+                                               onclick="return confirmReturn();">Return</a>
+                                        <?php } else { ?>
+                                            <span class="badge badge-success">Returned</span>
+                                        <?php } ?>
+                                    </td>
                                 </tr>
                         <?php } ?>
                     </tbody>
@@ -42,3 +50,14 @@
         </div>
     </div>
 </div>
+<script>
+  $(document).ready(function() {
+  $('#borrowTable').DataTable({
+  pageLength: 5,
+  lengthMenu: [5, 10, 20, 50]
+    });
+});
+function confirmReturn() {
+    return confirm('Are you sure you want to return this book?');
+}
+</script>

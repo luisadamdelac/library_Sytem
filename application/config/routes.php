@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// Route to handle singular Transaction controller to plural Transactions
+$route['Transaction/(:any)'] = 'Transactions/$1';
