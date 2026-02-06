@@ -8,7 +8,7 @@ class Transaction_model extends CI_Model {
     }
 
     public function get_all_transaction() {
-        $this->db->select('transactions.*, books.title, books.author, categories.category_name, CONCAT(users.Fname, " ", users.Lname) as fullname');
+        $this->db->select('transactions.*, books.title, books.author, categories.category_name, CONCAT(users.Fname, " ", users.Lname) as fullname, users.student_no, users.email, users.role');
         $this->db->from('transactions');
         $this->db->join('books', 'transactions.book_id = books.book_id');
         $this->db->join('users', 'transactions.user_id = users.user_id');

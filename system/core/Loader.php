@@ -244,6 +244,27 @@ class CI_Loader {
 	 */
 	public $Transaction_model;
 
+	/**
+	 * User_model
+	 *
+	 * @var	User_model
+	 */
+	public $User_model;
+
+	/**
+	 * form_validation
+	 *
+	 * @var	CI_Form_validation
+	 */
+	public $form_validation;
+
+	/**
+	 * session
+	 *
+	 * @var	CI_Session
+	 */
+	public $session;
+
 	// --------------------------------------------------------------------
 
 	/**
