@@ -13,13 +13,9 @@
               <a href="#" class="nav-link">
 
                 <div class="nav-profile-image">
-
-                  <img src="<?= base_url('assets/images/faces/face2.jpg')?>" alt="profile" />
-
+                  <img src="<?= base_url('assets/images/moy.jpg')?>" alt="profile" />
                   <span class="login-status online"></span>
-
                   <!--change to offline or busy as needed-->
-
                 </div>
 
                 <div class="nav-profile-text d-flex flex-column">
@@ -89,6 +85,16 @@
                     <a class="nav-link" href="<?= site_url('Categories')?>">Categories
 
                         <i class="mdi mdi-folder-multiple menu-icon"></i>
+
+                    </a>
+
+                  </li>
+
+                  <li class="nav-item">
+
+                    <a class="nav-link" href="<?= site_url('Reports/book_list')?>">Book Reports
+
+                        <i class="mdi mdi-file-chart menu-icon"></i>
 
                     </a>
 
@@ -237,7 +243,7 @@
 
                   <li class="nav-item">
 
-                    <a class="nav-link" href="pages/tables/basic-table.html">Books Reports
+                    <a class="nav-link" href="<?= site_url('Reports/book_list')?>">Books Reports
 
                          <i class="mdi mdi-book menu-icon"></i>
 
@@ -247,7 +253,7 @@
 
                   <li class="nav-item">
 
-                    <a class="nav-link" href="pages/tables/basic-table.html">Borrow / Return Report
+                    <a class="nav-link" href="<?= site_url('Reports/borrow_return_report')?>">Borrow / Return Report
 
                          <i class="mdi mdi-book-arrow-right menu-icon"></i>
 
@@ -257,7 +263,7 @@
 
                   <li class="nav-item">
 
-                    <a class="nav-link" href="pages/tables/basic-table.html">Users Report
+                    <a class="nav-link" href="<?= site_url('Reports/users_report')?>">Users Report
 
                          <i class="mdi mdi-account-group menu-icon"></i>
 
@@ -267,7 +273,7 @@
 
                   <li class="nav-item">
 
-                    <a class="nav-link" href="pages/tables/basic-table.html">Attendance Report
+                    <a class="nav-link" href="<?= site_url('Reports/attendance_report')?>">Attendance Report
 
                          <i class="mdi mdi-calendar-check menu-icon"></i>
 

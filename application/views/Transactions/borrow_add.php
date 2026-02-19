@@ -34,6 +34,14 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Borrow Date</label>
+                        <input type="date" name="borrow_date" class="form-control" value="<?= date('Y-m-d'); ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" name="due_date" class="form-control" value="<?= date('Y-m-d', strtotime('+7 days')); ?>" required>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

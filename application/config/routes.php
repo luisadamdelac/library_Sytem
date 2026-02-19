@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Route to handle singular Transaction controller to plural Transactions
 $route['Transaction/(:any)'] = 'Transactions/$1';
+
+// Route to redirect invalid Books/pages URL to Book Reports
+$route['Books/pages/(:any)'] = 'Reports/book_list';

@@ -45,7 +45,7 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="<?= base_url('assets/images/faces/face2.jpg') ?>" alt="image">
+                  <img src="<?= base_url('assets/images/moy.jpg') ?>" alt="image">
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
@@ -75,7 +75,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="<?= base_url('assets/images/faces/face4.jpg') ?>" alt="image" class="profile-pic">
+                    <img src="<?= base_url('"Downloads\moy.jpg".jpg') ?>" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>

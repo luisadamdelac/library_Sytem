@@ -46,7 +46,11 @@ class Transactions extends CI_Controller {
 
         $data['title'] = 'Borrowing/Returning of Books';
 
-        $data['borrow'] = $this->Transaction_model->get_all_transaction();
+        $data['borrow'] = $this->Transaction_model->get_all_borrow();
+
+        $data['books'] = $this->Transaction_model->get_all_books();
+
+        $data['users'] = $this->Transaction_model->get_all_users();
 
 
 
@@ -76,6 +80,9 @@ class Transactions extends CI_Controller {
 
         if ($this->input->post()) {
 
+            $borrow_date = $this->input->post('borrow_date') ?: date('Y-m-d');
+            $due_date = $this->input->post('due_date') ?: date('Y-m-d', strtotime('+7 days'));
+
             $this->db->trans_start();
 
             $this->db->insert('transactions', array(
@@ -84,9 +91,9 @@ class Transactions extends CI_Controller {
 
                 'book_id' => $this->input->post('book_id'),
 
-                'borrow_date' => date('Y-m-d'),
+                'borrow_date' => $borrow_date,
 
-                'due_date' => date('Y-m-d', strtotime('+7 days')),
+                'due_date' => $due_date,
 
                 'status' => 'Borrowed'
 
@@ -96,7 +103,7 @@ class Transactions extends CI_Controller {
 
             if ($this->db->trans_status()) {
 
-                redirect('Transactions/all_transaction');
+                redirect('Transactions/borrow');
 
             } else {
 
@@ -137,16 +144,21 @@ class Transactions extends CI_Controller {
         $this->db->trans_complete();
 
         if ($this->db->trans_status()) {
-
             redirect('Transactions/borrow');
-
         } else {
-
             // Handle error, perhaps redirect with error message
-
             redirect('Transactions/borrow');
-
         }
+    }
+
+    public function borrow_save() {
+            $book_id = $this->input->post('book_id');
+            $user_id = $this->input->post('user_id');   
+            $borrow_date = $this->input->post('borrow_date') ?: date('Y-m-d');
+            $due_date = $this->input->post('due_date') ?: date('Y-m-d', strtotime('+7 days'));
+
+            $this->Transaction_model->borrow_save($user_id, $book_id, $borrow_date, $due_date);
+            redirect('Transactions/borrow');
 
     }
 

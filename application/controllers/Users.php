@@ -63,7 +63,10 @@ class Users extends CI_Controller {
     }
 
     // Edit user
-    public function edit($user_id) {
+    public function edit($user_id = null) {
+        if (!$user_id) {
+            $user_id = $this->input->post('user_id');
+        }
         $data['title'] = 'Edit User';
         $data['user'] = $this->User_model->get_user_by_id($user_id);
         $data['roles'] = $this->User_model->get_all_roles();
